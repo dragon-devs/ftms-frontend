@@ -5,97 +5,103 @@ import config from '../config.json';
 
 
 function GroupTableSkeleton() {
+    return (
+        <div className="animate-pulse grid w-80 justify-center m-2 p-3 px-5 mb-4 bg-slate-950 rounded-lg hover:ring-1
+            hover:ring-blue-600 ease-in duration-300 hover:bg-slate-900 transition-all">
+            <table className="">
+                <caption className="font-bold p-1 mt-1.5 mb-[0.20rem]">
+                    <div className="h-4 w-20 bg-slate-700 rounded"></div>
+                </caption>
+                <thead>
+                <tr className="text-[10px] ">
+                    <th></th>
+                    <th className="p-1 pr-5 pb-2 text-left">CLUBNAME</th>
+                    <th className="p-1 pb-2 text-center ">P</th>
+                    <th className="p-1 pb-2 text-center ">W</th>
+                    <th className="p-1 pb-2 text-center ">L</th>
+                    <th className="p-1 pb-2 text-center ">D</th>
+                    <th className="p-1 pb-2 text-center ">GA</th>
+                    <th className="p-1 pb-2 text-center ">GD</th>
+                    <th className="p-1 pb-2 text-center ">Pts</th>
+                </tr>
 
-    return <div className=" grid justify-center m-2 p-3 px-5 mb-4 bg-slate-950 rounded-lg
-                                hover:ring-1 hover:ring-blue-600 ease-in duration-300 hover:bg-slate-900 transition-all">
-        <table className="">
-            <caption className="font-bold p-1">GROUP A</caption>
-            <thead>
-            <tr className="text-[10px] ">
-                <th></th>
-                <th className="p-1 text-left">CLUBNAME</th>
-                <th className="p-1 text-center ">P</th>
-                <th className="p-1 text-center ">W</th>
-                <th className="p-1 text-center ">L</th>
-                <th className="p-1 text-center ">D</th>
-                <th className="p-1 text-center ">GA</th>
-                <th className="p-1 text-center ">GD</th>
-                <th className="p-1 text-center ">Pts</th>
-            </tr>
+                </thead>
 
-            </thead>
-
-            <tbody>
+                <tbody>
 
 
-            <tr className="text-[13px] text-slate-400 ">
-                <td>
-                    <div className="rounded-full bg-slate-700 -ml-2 h-3 w-3 "></div>
-                </td>
-                <td className=" pr-2 pl-1 py-2.5 text-slate-500 dark:text-slate-400 text-left">
-                    <div className="h-2 w-16 bg-slate-700 rounded"></div>
-                </td>
-                <td className=" px-2 text-center">0</td>
-                <td className=" px-2 text-center">0</td>
-                <td className=" px-2 text-center">0</td>
-                <td className=" px-2 text-center">0</td>
-                <td className=" px-2 text-center">0</td>
-                <td className=" px-2 text-center">0</td>
-                <td className=" px-2 text-center">0</td>
-            </tr>
+                <tr className="text-[12px] text-slate-400 ">
+                    <td className="">
+                        <div className="rounded-full bg-slate-700 -ml-2 h-3 w-3 mr-1.5"></div>
+                    </td>
+                    <td className="pr-3 text-slate-500 dark:text-slate-400 text-left">
+                        <div className="h-2 w-16 bg-slate-700 rounded"></div>
+                    </td>
+                    <td className=" px-2 py-1 text-center ">0</td>
+                    <td className=" px-2 py-1 text-center ">0</td>
+                    <td className=" px-2 py-1 text-center ">0</td>
+                    <td className=" px-2 py-1 text-center ">0</td>
+                    <td className=" px-2 py-1 text-center ">0</td>
+                    <td className=" px-2 py-1 text-center ">0</td>
+                    <td className=" px-2 py-1 text-center ">0</td>
 
-            <tr className="text-[13px] text-slate-400 ">
-                <td>
-                    <div className="rounded-full bg-slate-700 -ml-2 h-3 w-3 "></div>
-                </td>
-                <td className=" pr-2 pl-1 py-2.5 text-slate-500 dark:text-slate-400 text-left">
-                    <div className="h-2 w-16 bg-slate-700 rounded"></div>
-                </td>
-                <td className=" px-2 text-center">0</td>
-                <td className=" px-2 text-center">0</td>
-                <td className=" px-2 text-center">0</td>
-                <td className=" px-2 text-center">0</td>
-                <td className=" px-2 text-center">0</td>
-                <td className=" px-2 text-center">0</td>
-                <td className=" px-2 text-center">0</td>
-            </tr>
+                </tr>
 
-            <tr className="text-[13px] text-slate-400 ">
-                <td>
-                    <div className="rounded-full bg-slate-700 -ml-2 h-3 w-3 "></div>
-                </td>
-                <td className=" pr-2 pl-1 py-2.5 text-slate-500 dark:text-slate-400 text-left">
-                    <div className="h-2 w-16 bg-slate-700 rounded"></div>
-                </td>
-                <td className=" px-2 text-center">0</td>
-                <td className=" px-2 text-center">0</td>
-                <td className=" px-2 text-center">0</td>
-                <td className=" px-2 text-center">0</td>
-                <td className=" px-2 text-center">0</td>
-                <td className=" px-2 text-center">0</td>
-                <td className=" px-2 text-center">0</td>
-            </tr>
+                <tr className="text-[12px] text-slate-400 ">
+                    <td className="">
+                        <div className="rounded-full bg-slate-700 -ml-2 h-3 w-3 mr-1.5"></div>
+                    </td>
+                    <td className="pr-3 text-slate-500 dark:text-slate-400 text-left">
+                        <div className="h-2 w-16 bg-slate-700 rounded"></div>
+                    </td>
+                    <td className=" px-2 py-1 text-center ">0</td>
+                    <td className=" px-2 py-1 text-center ">0</td>
+                    <td className=" px-2 py-1 text-center ">0</td>
+                    <td className=" px-2 py-1 text-center ">0</td>
+                    <td className=" px-2 py-1 text-center ">0</td>
+                    <td className=" px-2 py-1 text-center ">0</td>
+                    <td className=" px-2 py-1 text-center ">0</td>
 
-            <tr className="text-[13px] text-slate-400 ">
-                <td>
-                    <div className="rounded-full bg-slate-700 -ml-2 h-3 w-3 "></div>
-                </td>
-                <td className=" pr-2 pl-1 py-2.5 text-slate-500 dark:text-slate-400 text-left">
-                    <div className="h-2 w-16 bg-slate-700 rounded"></div>
-                </td>
-                <td className=" px-2 text-center">0</td>
-                <td className=" px-2 text-center">0</td>
-                <td className=" px-2 text-center">0</td>
-                <td className=" px-2 text-center">0</td>
-                <td className=" px-2 text-center">0</td>
-                <td className=" px-2 text-center">0</td>
-                <td className=" px-2 text-center">0</td>
-            </tr>
+                </tr>
 
-            </tbody>
-        </table>
+                <tr className="text-[12px] text-slate-400 ">
+                    <td className="">
+                        <div className="rounded-full bg-slate-700 -ml-2 h-3 w-3 mr-1.5"></div>
+                    </td>
+                    <td className="pr-3 text-slate-500 dark:text-slate-400 text-left">
+                        <div className="h-2 w-16 bg-slate-700 rounded"></div>
+                    </td>
+                    <td className=" px-2 py-1 text-center ">0</td>
+                    <td className=" px-2 py-1 text-center ">0</td>
+                    <td className=" px-2 py-1 text-center ">0</td>
+                    <td className=" px-2 py-1 text-center ">0</td>
+                    <td className=" px-2 py-1 text-center ">0</td>
+                    <td className=" px-2 py-1 text-center ">0</td>
+                    <td className=" px-2 py-1 text-center ">0</td>
 
-    </div>
+                </tr>
+
+                <tr className="text-[12px] text-slate-400 ">
+                    <td className="">
+                        <div className="rounded-full bg-slate-700 -ml-2 h-3 w-3 mr-1.5"></div>
+                    </td>
+                    <td className="pr-3 text-slate-500 dark:text-slate-400 text-left">
+                        <div className="h-2 w-16 bg-slate-700 rounded"></div>
+                    </td>
+                    <td className=" px-2 py-1 text-center ">0</td>
+                    <td className=" px-2 py-1 text-center ">0</td>
+                    <td className=" px-2 py-1 text-center ">0</td>
+                    <td className=" px-2 py-1 text-center ">0</td>
+                    <td className=" px-2 py-1 text-center ">0</td>
+                    <td className=" px-2 py-1 text-center ">0</td>
+                    <td className=" px-2 py-1 text-center ">0</td>
+
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    )
 }
 
 const GroupTable = ({tournamentId, groupId, groupName}) => {
@@ -120,7 +126,7 @@ const GroupTable = ({tournamentId, groupId, groupName}) => {
 
     useEffect(() => {
         fetchData();
-        const intervalId = setInterval(fetchData, 2000); // Polling every 5 seconds (adjust as per your requirements)
+        const intervalId = setInterval(fetchData, 5000); // Polling every 5 seconds (adjust as per your requirements)
 
         return () => {
             clearInterval(intervalId);
@@ -136,7 +142,7 @@ const GroupTable = ({tournamentId, groupId, groupName}) => {
 
             {/* Render the actual GroupTable component once data is available */}
             {!loading && (
-                <div className=" grid justify-center m-2 p-3 px-5 mb-4 bg-slate-950 rounded-lg hover:ring-1
+                <div className="grid w-80 justify-center m-2 p-3 px-5 mb-4 bg-slate-950 rounded-lg hover:ring-1
             hover:ring-blue-600 ease-in duration-300 hover:bg-slate-900 transition-all">
                     <table className="">
                         <caption className="font-bold p-1">GROUP {groupName}</caption>

@@ -5,6 +5,7 @@ import config from "../config.json"
 import {ChevronDoubleLeftIcon, TrophyIcon, XCircleIcon} from "@heroicons/react/24/solid";
 import GetGroups from "./gettingGroupTabs";
 import TournamentCardSkeleton from "./TournamentSkeleton";
+import {ExclamationCircleIcon, QuestionMarkCircleIcon} from "@heroicons/react/20/solid";
 
 
 const TournamentDetails = () => {
@@ -13,20 +14,28 @@ const TournamentDetails = () => {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
 
+    function hideErrorContainer() {
+        const errorContainer = document.getElementById('error-container');
+        errorContainer.style.display = 'none';
+    }
+
     useEffect(() => {
         // Simulate data fetching with a delay
         const fetchDataWithDelay = async () => {
             try {
                 // Simulate a delay of 2 seconds before fetching data
-                await new Promise(resolve => setTimeout(resolve, 50));
+                await new Promise(resolve => setTimeout(resolve, 0));
                 const response = await axios.get(config.apiEndpoint);
                 setTournaments(response.data);
                 setLoading(false); // Set loading to false after data is fetched
+
             } catch (error) {
                 console.error('Error fetching tournaments data:', error);
                 setError('Error fetching tournaments. Please try again later.');
                 setLoading(false); // Set loading to false in case of an error
+
             }
+
         };
 
         fetchDataWithDelay();
@@ -42,13 +51,22 @@ const TournamentDetails = () => {
 
     if (error) {
         return (
-            <div className="bg-slate-800 grid grid-rows-6 text-slate-300">
-                <div className="grid justify-center m-10">
+            <div className="bg-slate-900 grid grid-rows-6 text-slate-300">
+                <div className="grid justify-center m-5">
                     <div id="error-container" className="transition-all bg-red-200 flex gap-2 p-6  rounded-xl">
                         <XCircleIcon className="h-6 w-6 text-red-500" id="error-svg"/>
                         <div id="error-message" className="text-red-500">{error}</div>
                     </div>
-                    <TournamentCardSkeleton/>
+                    <div className="p-3">
+                        <h2 className="grid justify-center font-bold uppercase p-3 drop-shadow-lg text-slate-300">Tournaments</h2>
+
+                        <TournamentCardSkeleton/>
+                        <TournamentCardSkeleton/>
+                        <TournamentCardSkeleton/>
+                        <TournamentCardSkeleton/>
+                        <TournamentCardSkeleton/>
+                    </div>
+
                 </div>
             </div>
         );
@@ -57,8 +75,14 @@ const TournamentDetails = () => {
     if (loading) {
         // Show the loading skeleton while data is being fetched
         return (
-            <div className="bg-gradient-to-bl from-slate-800 to-slate-900 text-slate-300">
-                <div className="grid justify-center">
+            <div className="bg-slate-900 text-slate-300">
+                <div className="grid justify-center p-3">
+                    <h2 className="grid justify-center font-bold uppercase p-3 drop-shadow-lg text-slate-300">Tournaments</h2>
+
+                    <TournamentCardSkeleton/>
+                    <TournamentCardSkeleton/>
+                    <TournamentCardSkeleton/>
+                    <TournamentCardSkeleton/>
                     <TournamentCardSkeleton/>
                 </div>
             </div>
@@ -70,10 +94,19 @@ const TournamentDetails = () => {
     }
 
     return (
-        <div className="bg-gradient-to-bl from-slate-800 to-slate-900  text-slate-300">
+        <div className="bg-slate-900 text-slate-300">
             <div className="grid justify-center">
+                <div id="error-container"
+                     className=" animate-pulse decoration-2 mt-6 place-items-center place-self-center h-auto w-72 transition-all bg-amber-100 flex gap-2 p-6 rounded-xl">
+                    <ExclamationCircleIcon className="h-8 w-8 text-amber-500" id="error-svg"/>
+                    <XCircleIcon className="h-6 w-6 text-red-500 absolute ml-[14.7rem] mb-16"
+                                 onClick={hideErrorContainer} id="close-svg"/>
+                    <div id="error-message" className="text-amber-950">The application is currently in development ;)
+                    </div>
+                </div>
 
                 {!selectedTournament ? (
+
 
                     <div className="grid grid-rows-1 max-w-auto grid-cols-1 p-3  gap-3 border-1 text-slate-300">
                         <h2 className="grid justify-center font-bold uppercase p-3 drop-shadow-lg text-slate-300">Tournaments</h2>

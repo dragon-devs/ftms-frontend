@@ -26,7 +26,12 @@ const NewTournamentForm = () => {
             try {
                 const response = await axios.get(config.clubAPI);
                 setAllClubs(response.data);
-                console.log(response)
+
+                // Generate initial club fields based on default teams_selection (4)
+                const initialClubs = generateInitialClubs(formData.teams_selection);
+                setFormData(prevFormData => ({...prevFormData, clubs: initialClubs}));
+
+                console.log(response);
             } catch (error) {
                 console.error('Error creating clubs:', error);
                 const errorMessageElement = document.getElementById('error-message');
@@ -128,59 +133,64 @@ const NewTournamentForm = () => {
     };
 
     return (
-        <div className="bg-center grid bg-slate-900 grid-rows-2 ">
-            <div className="grid justify-center p-4  pt-10 pb-20 gap-2 ">
-                <div id="success-container" className="hidden bg-green-200 flex gap-2 p-6 rounded-xl">
+        <div className="bg-slate-900 grid-rows-2 grid justify-center">
+            <div className="pt-10 pb-20 gap-2 ">
+                <div id="success-container" className="hidden bg-green-200 flex gap-2 mb-3 p-6 rounded-xl">
                     <CheckCircleIcon className="h-6 w-6 text-green-500" id="success-svg"/>
                     <div id="success-message" className="text-green-500"></div>
                 </div>
-                <div id="error-container" className="hidden transition-all bg-red-200 flex gap-2 p-6 rounded-xl">
+                <div id="error-container" className="hidden transition-all bg-red-200 flex mb-3 gap-2 p-6 rounded-xl">
                     <XCircleIcon className="h-6 w-6 text-red-500" id="error-svg"/>
                     <div id="error-message" className="text-red-500"></div>
                 </div>
-                <form className="grid w-[22rem] grid-cols-2 text-slate-300 gap-3 bg-slate-950 p-5 rounded-xl"
-                      onSubmit={handleSubmit}>
+                <form
+                    className="grid w-[22rem] grid-cols-2 text-slate-300 gap-3 ring-1 drop-shadow-xl bg-slate-950 p-5 rounded-xl"
+                    onSubmit={handleSubmit}>
                     <caption className="grid col-span-2 font-bold text-lg">NEW TOURNAMENT</caption>
                     <label className="grid col-span-2 py-3 pb-0 text-slate-500 font-bold gap-1 text-[10px]">
                         TOURNAMENT NAME
                         <input
-                            className=" p-1 text-sm font-semibold rounded-lg text-slate-900 text-center"
+                            className=" p-1 text-sm font-semibold rounded-lg text-slate-300 bg-slate-700 text-center"
                             type="text"
                             name="tournament_name"
+                            placeholder="Your tournament name..."
                             value={formData.tournament_name}
                             onChange={(e) => setFormData({...formData, tournament_name: e.target.value})}
+                            required
                         />
                     </label>
 
                     <label className="grid col-span-2 py-3 pb-0 text-slate-500 font-bold gap-1 text-[10px]">
-                        TEAMS SELECTION
-                        <select
-                            className="p-1 text-sm font-semibold rounded-lg text-slate-900 text-center"
-                            name="teams_selection"
-                            value={formData.teams_selection}
-                            onChange={handleTeamsSelectionChange}
-                        >
-                            <option value="4">4</option>
-                            <option value="8">8</option>
-                            <option value="16">16</option>
-                            <option value="32">32</option>
-                            <option value="64">64</option>
-                        </select>
-                    </label>
-
-
-                    <label className="grid col-span-2 py-3 pb-0 text-slate-500 font-bold gap-1 text-[10px]">
                         TOURNAMENT TYPE
                         <select
-                            className=" p-1 text-sm font-semibold mb-5 rounded-lg text-slate-900 text-center"
+                            className=" p-1 text-sm font-semibold rounded-lg text-slate-300 bg-slate-700 text-center"
                             name="tournament_type"
                             value={formData.tournament_type}
                             onChange={(e) => setFormData({...formData, tournament_type: e.target.value})}
+                            required
                         >
                             <option value="Groups">Groups & Knockout</option>
                             <option value="K/O">Knockout</option>
                         </select>
                     </label>
+
+                    <label className="grid col-span-2 py-3 pb-0 text-slate-500 font-bold gap-1 text-[10px]">
+                        TEAMS SELECTION
+                        <select
+                            className="p-1 text-sm font-semibold  mb-5 text-slate-300 bg-slate-700 rounded-lg  text-center"
+                            name="teams_selection"
+                            value={formData.teams_selection}
+                            onChange={handleTeamsSelectionChange}
+                            required
+                        >
+                            <option value="4">4 Teams</option>
+                            <option value="8">8 Teams</option>
+                            <option value="16">16 Teams</option>
+                            <option value="32">32 Teams</option>
+                            <option value="64">64 Teams</option>
+                        </select>
+                    </label>
+
 
                     {formData.clubs.map((club, index) => (
                         <div className="grid justify-center grid-cols-3 gap-1" key={index}>
@@ -189,10 +199,11 @@ const NewTournamentForm = () => {
                             </label>
                             <select
                                 className="grid p-1 transition-all col-span-2 w-auto text-sm font-semibold rounded-lg
-                                text-slate-900 text-center"
+                                text-slate-300 bg-slate-700 text-center"
                                 name="club"
                                 value={club.club_name}
                                 onChange={(e) => handleChange(e, index)}
+                                required
                             >
                                 {/* Show the selected club in the "Select a club" option */}
                                 {selectedClubs[index] && (
@@ -210,9 +221,8 @@ const NewTournamentForm = () => {
                     ))}
 
 
-                    <button className="transition-all duration-300 ease-in grid hover:drop-shadow-xl
-                    hover:shadow-blue-500 ring-1 hover:ring-blue-500 hover:bg-blue-950 col-span-2 bg-blue-600
-                    p-3 mt-3 rounded-lg" type="submit">Create Tournament
+                    <button className="bg-sky-500 hover:bg-sky-700 px-5 py-2 my-3 text-sm leading-5 rounded-full
+                    font-semibold col-span-2 text-white justify-self-center" type="submit">Create Tournament
                     </button>
                 </form>
             </div>

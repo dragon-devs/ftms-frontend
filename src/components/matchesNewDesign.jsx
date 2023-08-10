@@ -8,46 +8,13 @@ import GroupTabsSkeleton from "./groupsSkeleton";
 const MatchSkeleton = () => {
     return (
         <div>
-            <div className="m-2 ">
+            <div className="m-2 animate-pulse ">
                 <div className="grid justify-center place-self-center grid-cols-3 gap-1 p-4 px-3
                             place-items-center hover:ring-1 hover:ring-blue-600 ease-in duration-300 hover:bg-slate-900
                             transition-all drop-shadow-2xl rounded-lg bg-slate-950">
 
-                    <div className="col-span-3 text-slate-300 justify-self-center place-self-start text-sm font-normal">
-                        <div className="h-4 w-52 my-1 mb-3 bg-slate-700 rounded"></div>
-
-                    </div>
-
-                    <div className="grid justify-items-center gap-1">
-                        <div className="rounded-full bg-slate-700 h-10 w-10"></div>
-                        <span className="text-sm font-thin text-slate-300">
-
-                                  <div className="h-4 w-16 mt-2 bg-slate-700 rounded"></div>
-
-                                </span>
-                    </div>
-                    <div className="grid justify-items-center justify-self-center place-self-end">
-                        <div className="h-3 w-4 mt-2 bg-slate-700 rounded"></div>
-                        <div className="h-5 w-16 mt-2 bg-slate-700 rounded"></div>
-                        <div className="h-3 w-16 mt-2 bg-slate-700 rounded"></div>
-
-                    </div>
-
-                    <div className="grid justify-items-center gap-1">
-                        <div className="rounded-full bg-slate-700 h-10 w-10"></div>
-                        <span className="text-sm font-thin text-slate-300">
-                                  <div className="h-4 w-16 mt-2 bg-slate-700 rounded"></div>
-                                </span>
-                    </div>
-                </div>
-            </div>
-
-            <div className="m-2 ">
-                <div className="grid justify-center place-self-center grid-cols-3 gap-1 p-4 px-3
-                            place-items-center hover:ring-1 hover:ring-blue-600 ease-in duration-300 hover:bg-slate-900
-                            transition-all drop-shadow-2xl rounded-lg bg-slate-950">
-
-                    <div className="col-span-3 text-slate-300 justify-self-center place-self-start text-sm font-normal">
+                    <div
+                        className="col-span-3 text-slate-300 justify-self-center place-self-start text-sm font-normal">
                         <div className="h-4 w-52 my-1 mb-3 bg-slate-700 rounded"></div>
 
                     </div>
@@ -76,83 +43,121 @@ const MatchSkeleton = () => {
 
 
                 </div>
-
-                <div className="m-2 ">
-                    <div className="grid justify-center place-self-center grid-cols-3 gap-1 p-4 px-3
-                            place-items-center hover:ring-1 hover:ring-blue-600 ease-in duration-300 hover:bg-slate-900
-                            transition-all drop-shadow-2xl rounded-lg bg-slate-950">
-
-                        <div
-                            className="col-span-3 text-slate-300 justify-self-center place-self-start text-sm font-normal">
-                            <div className="h-4 w-52 my-1 mb-3 bg-slate-700 rounded"></div>
-
-                        </div>
-
-                        <div className="grid justify-items-center gap-1">
-                            <div className="rounded-full bg-slate-700 h-10 w-10"></div>
-                            <span className="text-sm font-thin text-slate-300">
-
-                                  <div className="h-4 w-16 mt-2 bg-slate-700 rounded"></div>
-
-                                </span>
-                        </div>
-                        <div className="grid justify-items-center justify-self-center place-self-end">
-                            <div className="h-3 w-4 mt-2 bg-slate-700 rounded"></div>
-                            <div className="h-5 w-16 mt-2 bg-slate-700 rounded"></div>
-                            <div className="h-3 w-16 mt-2 bg-slate-700 rounded"></div>
-
-                        </div>
-
-                        <div className="grid justify-items-center gap-1">
-                            <div className="rounded-full bg-slate-700 h-10 w-10"></div>
-                            <span className="text-sm font-thin text-slate-300">
-                                  <div className="h-4 w-16 mt-2 bg-slate-700 rounded"></div>
-                                </span>
-                        </div>
-
-
-                    </div>
-                </div>
-
-                <div className="m-2 ">
-                    <div className="grid justify-center place-self-center grid-cols-3 gap-1 p-4 px-3
-                            place-items-center hover:ring-1 hover:ring-blue-600 ease-in duration-300 hover:bg-slate-900
-                            transition-all drop-shadow-2xl rounded-lg bg-slate-950">
-
-                        <div
-                            className="col-span-3 text-slate-300 justify-self-center place-self-start text-sm font-normal">
-                            <div className="h-4 w-52 my-1 mb-3 bg-slate-700 rounded"></div>
-
-                        </div>
-
-                        <div className="grid justify-items-center gap-1">
-                            <div className="rounded-full bg-slate-700 h-10 w-10"></div>
-                            <span className="text-sm font-thin text-slate-300">
-
-                                  <div className="h-4 w-16 mt-2 bg-slate-700 rounded"></div>
-
-                                </span>
-                        </div>
-                        <div className="grid justify-items-center justify-self-center place-self-end">
-                            <div className="h-3 w-4 mt-2 bg-slate-700 rounded"></div>
-                            <div className="h-5 w-16 mt-2 bg-slate-700 rounded"></div>
-                            <div className="h-3 w-16 mt-2 bg-slate-700 rounded"></div>
-
-                        </div>
-
-                        <div className="grid justify-items-center gap-1">
-                            <div className="rounded-full bg-slate-700 h-10 w-10"></div>
-                            <span className="text-sm font-thin text-slate-300">
-                                  <div className="h-4 w-16 mt-2 bg-slate-700 rounded"></div>
-                                </span>
-                        </div>
-
-
-                    </div>
-                </div>
-
             </div>
 
+
+            <div className="m-2 animate-pulse ">
+                <div className="grid justify-center place-self-center grid-cols-3 gap-1 p-4 px-3
+                            place-items-center hover:ring-1 hover:ring-blue-600 ease-in duration-300 hover:bg-slate-900
+                            transition-all drop-shadow-2xl rounded-lg bg-slate-950">
+
+                    <div
+                        className="col-span-3 text-slate-300 justify-self-center place-self-start text-sm font-normal">
+                        <div className="h-4 w-52 my-1 mb-3 bg-slate-700 rounded"></div>
+
+                    </div>
+
+                    <div className="grid justify-items-center gap-1">
+                        <div className="rounded-full bg-slate-700 h-10 w-10"></div>
+                        <span className="text-sm font-thin text-slate-300">
+
+                                  <div className="h-4 w-16 mt-2 bg-slate-700 rounded"></div>
+
+                                </span>
+                    </div>
+                    <div className="grid justify-items-center justify-self-center place-self-end">
+                        <div className="h-3 w-4 mt-2 bg-slate-700 rounded"></div>
+                        <div className="h-5 w-16 mt-2 bg-slate-700 rounded"></div>
+                        <div className="h-3 w-16 mt-2 bg-slate-700 rounded"></div>
+
+                    </div>
+
+                    <div className="grid justify-items-center gap-1">
+                        <div className="rounded-full bg-slate-700 h-10 w-10"></div>
+                        <span className="text-sm font-thin text-slate-300">
+                                  <div className="h-4 w-16 mt-2 bg-slate-700 rounded"></div>
+                                </span>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            <div className="m-2 animate-pulse ">
+                <div className="grid justify-center place-self-center grid-cols-3 gap-1 p-4 px-3
+                            place-items-center hover:ring-1 hover:ring-blue-600 ease-in duration-300 hover:bg-slate-900
+                            transition-all drop-shadow-2xl rounded-lg bg-slate-950">
+
+                    <div
+                        className="col-span-3 text-slate-300 justify-self-center place-self-start text-sm font-normal">
+                        <div className="h-4 w-52 my-1 mb-3 bg-slate-700 rounded"></div>
+
+                    </div>
+
+                    <div className="grid justify-items-center gap-1">
+                        <div className="rounded-full bg-slate-700 h-10 w-10"></div>
+                        <span className="text-sm font-thin text-slate-300">
+
+                                  <div className="h-4 w-16 mt-2 bg-slate-700 rounded"></div>
+
+                                </span>
+                    </div>
+                    <div className="grid justify-items-center justify-self-center place-self-end">
+                        <div className="h-3 w-4 mt-2 bg-slate-700 rounded"></div>
+                        <div className="h-5 w-16 mt-2 bg-slate-700 rounded"></div>
+                        <div className="h-3 w-16 mt-2 bg-slate-700 rounded"></div>
+
+                    </div>
+
+                    <div className="grid justify-items-center gap-1">
+                        <div className="rounded-full bg-slate-700 h-10 w-10"></div>
+                        <span className="text-sm font-thin text-slate-300">
+                                  <div className="h-4 w-16 mt-2 bg-slate-700 rounded"></div>
+                                </span>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            <div className="m-2 animate-pulse ">
+                <div className="grid justify-center place-self-center grid-cols-3 gap-1 p-4 px-3
+                            place-items-center hover:ring-1 hover:ring-blue-600 ease-in duration-300 hover:bg-slate-900
+                            transition-all drop-shadow-2xl rounded-lg bg-slate-950">
+
+                    <div
+                        className="col-span-3 text-slate-300 justify-self-center place-self-start text-sm font-normal">
+                        <div className="h-4 w-52 my-1 mb-3 bg-slate-700 rounded"></div>
+
+                    </div>
+
+                    <div className="grid justify-items-center gap-1">
+                        <div className="rounded-full bg-slate-700 h-10 w-10"></div>
+                        <span className="text-sm font-thin text-slate-300">
+
+                                  <div className="h-4 w-16 mt-2 bg-slate-700 rounded"></div>
+
+                                </span>
+                    </div>
+                    <div className="grid justify-items-center justify-self-center place-self-end">
+                        <div className="h-3 w-4 mt-2 bg-slate-700 rounded"></div>
+                        <div className="h-5 w-16 mt-2 bg-slate-700 rounded"></div>
+                        <div className="h-3 w-16 mt-2 bg-slate-700 rounded"></div>
+
+                    </div>
+
+                    <div className="grid justify-items-center gap-1">
+                        <div className="rounded-full bg-slate-700 h-10 w-10"></div>
+                        <span className="text-sm font-thin text-slate-300">
+                                  <div className="h-4 w-16 mt-2 bg-slate-700 rounded"></div>
+                                </span>
+                    </div>
+
+
+                </div>
+            </div>
 
         </div>)
 }

@@ -14,21 +14,27 @@ import MatchesNew from "./components/matchesNewDesign";
 import YourComponent from "./components/formatingDateTime";
 import {BrowserRouter as Router, Route, Routes,} from "react-router-dom";
 import Skeletontest from "./components/skeletontest";
+import Layout from "./components/Layout";
+import ClubForm from "./components/clubForm";
+import PhoneNumberInput from "./components/phoneNumberInput";
+import PhoneNumberValidation from "./components/phoneNumberInput";
 
 
 function App() {
     return (
         <Router>
             <Routes>
-                <Route path="/" element={<TournamentDetails/>}/>
-                <Route path="/teams" element={<ClubsDetails/>}/>
-                <Route path="/new" element={<NewTournamentForm/>}/>
-                <Route path="/tabs" element={<Example/>}/>
-                <Route path="/skel" element={<Skeletontest/>}/>
+                <Route path="/" element={<Layout/>}>
+                    <Route index element={<TournamentDetails/>}/>
+                    <Route path="/teams" element={<ClubsDetails/>}/>
+                    <Route path="/new-tournament" element={<NewTournamentForm/>}/>
+                    <Route path="/new-club" element={<ClubForm/>}/>
+
+                    {/*<Route path="/tabs" element={<Example />} />*/}
+                    {/*<Route path="/skel" element={<Skeletontest />} />*/}
+                </Route>
             </Routes>
         </Router>
-
-
     );
 }
 
