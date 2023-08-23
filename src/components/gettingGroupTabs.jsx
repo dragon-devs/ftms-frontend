@@ -49,7 +49,7 @@ export default function GetGroups({tournamentId}) {
     }, [tournamentId]);
 
     return (
-        <>
+        <div className="grid place-items-center place-content-center">
             {/* Show the skeleton loading effect while data is being fetched */}
             {loading && <GroupTabsSkeleton/>}
 
@@ -62,6 +62,6 @@ export default function GetGroups({tournamentId}) {
                     tournamentId={tournamentId}
                 />
             )}
-        </>
+        </div>
     );
 }

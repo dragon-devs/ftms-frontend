@@ -4,6 +4,7 @@ import config from "../config.json"
 import DateTimeFormating from "./formatingDateTime";
 import MatchScore from "./isTeamWinnerScore";
 import GroupTabsSkeleton from "./groupsSkeleton";
+import {Link, useNavigate} from 'react-router-dom';
 
 const MatchSkeleton = () => {
     return (
@@ -162,13 +163,15 @@ const MatchSkeleton = () => {
         </div>)
 }
 
-const MatchesNew = ({tournamentId, groupId}) => {
+const PreviousMatches = () => {
     const [matches, setMatches] = useState([]);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true); // Initialize loading to true
+    const navigate = useNavigate(); // Initialize useNavigate
+
 
     const fetchData = () => {
-        const API_URL = `${config.apiEndpoint}/${tournamentId}/groups/${groupId}/matches/`;
+        const API_URL = `${config.api}/matches/previous_matches`;
 
         axios.get(API_URL)
             .then(response => {
@@ -189,27 +192,37 @@ const MatchesNew = ({tournamentId, groupId}) => {
         return () => {
             clearInterval(intervalId);
         };
-    }, [tournamentId, groupId]);
+    }, []);
 
     if (error) {
         return <div>Error: {error}</div>;
     }
 
-    return (
-            <div>
-                {loading && <MatchSkeleton/>}
 
-                {!loading && matches.map(match => (
-                    <div className="m-2 ">
-                        <div key={match.pk}>
+    return (
+        <div>
+            {loading && <MatchSkeleton/>}
+
+            {!loading && matches.slice(0, 3).map(match => (
+                <div className="m-2 ">
+                    <div key={match.pk}>
+                        <Link to={`/${match.tournament.id}/groups`}
+                              onClick={() => navigate(`/${match.tournament.id}/groups`)}
+                        >
                             <div className="grid justify-center place-self-center grid-cols-3 gap-1 p-4 px-3
                             place-items-center hover:ring-1 hover:ring-blue-600 ease-in duration-300 hover:bg-slate-900
-                            transition-all drop-shadow-2xl rounded-lg bg-slate-950">
+                            transition-all drop-shadow-2xl rounded-lg bg-slate-800">
 
-                                <div
-                                    className="col-span-3 text-slate-300 justify-self-center place-self-start text-sm font-normal">{match.tournament.tournament_name} -
-                                    Group Stage
+                                <div className="flex col-span-3 gap-2 place-content-center">
+                                    <div className="font-semibold text-slate-400 text-[12px]">
+                                        {match.tournament.tournament_name.toUpperCase()}
+                                    </div>
+                                    <div className="bg-rose-300 px-2 text-[10px] grid place-content-center place-self-center
+                                drop-shadow-lg font-bold text-slate-900 rounded-xl">
+                                        GROUP-STAGES
+                                    </div>
                                 </div>
+
 
                                 <div className="grid justify-items-center gap-1">
                                     <img className="w-14 h-14 drop-shadow-md shadow-blue-50"
@@ -217,6 +230,7 @@ const MatchesNew = ({tournamentId, groupId}) => {
                                     <span
                                         className="text-sm font-thin text-slate-300">{match.team_1.club_name.club_name}</span>
                                 </div>
+
                                 <div className="grid justify-items-center justify-self-center place-self-end">
                                     {match.is_match_ended ? (
                                         <MatchScore match={match}/>
@@ -232,16 +246,31 @@ const MatchesNew = ({tournamentId, groupId}) => {
                                     <span
                                         className="text-sm font-thin text-slate-300">{match.team_2.club_name.club_name}</span>
                                 </div>
+                                <div
+                                    className="flex col-span-1 text-[10px] gap-1 font-thin pt-2 text-white place-items-center">
+                                    POINTS <span className="rounded-full flex w-5 h-5 text-[12px] place-content-center
+                                place-items-center bg-indigo-800">{match.team_1.points}</span>
+                                </div>
+                                <div
+                                    className="flex col-span-1 text-[10px] gap-1 font-thin pt-2 text-white place-items-center">
+                                </div>
+
+                                <div
+                                    className="flex col-span-1 text-[10px] gap-1 font-thin pt-2 text-white place-items-center">
+                                    POINTS <span className="rounded-full flex w-5 h-5 text-[12px] place-content-center
+                                place-items-center bg-indigo-800">{match.team_2.points}</span>
+                                </div>
 
 
                             </div>
+                        </Link>
 
-                        </div>
                     </div>
-                ))}
-            </div>
-        );
+                </div>
+            ))}
+        </div>
+    );
 
 }
 
-export default MatchesNew;
+export default PreviousMatches;

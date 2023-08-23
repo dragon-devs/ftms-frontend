@@ -271,4 +271,95 @@ const GroupTabsSkeleton = () => {
     );
 };
 
+
 export default GroupTabsSkeleton;
+
+export const SkeletonMatchQualify = () => {
+    return (
+        <div className="bg-slate-900 text-slate-100 grid justify-center animate-pulse">
+
+            <div
+                className="p-2 rounded-xl mt-3 transition-all animate-pulse drop-shadow-xl ring-1 bg-slate-950   ring-blue-800 hover:ring-2 hover:ring-blue-500   duration-300 ">
+
+                <div className="gap-2 ">
+
+                    <div
+                        className="font-semibold text-slate-400 text-sm p-4 mb-2 rounded-xl bg-slate-800 grid place-content-center"></div>
+                    <div className="group bg-slate-800 p-2 w-60 grid rounded-xl">
+                        <div className="grid grid-cols-5 gap-3 place-items-center text-sm font-semibold">
+                            <div className="col-span-3 text-slate-300 justify-self-start"></div>
+                            <div className="h-8 bg-slate-700 rounded"></div>
+
+                        </div>
+                    </div>
+                    <svg width="120" height="120" viewBox="0 0 59 45"
+                         className={"fill-blue-800 hover:fill-blue-500 absolute -mt-[1rem] ml-[15.14rem] "}
+                         xmlns="http://www.w3.org/2000/svg">
+                        <g id="Group 2">
+                            <g id="Vector">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M18 3.5H4V2.5H18C21.0376 2.5 23.5 4.96243 23.5 8V39C23.5 41.4853 25.5147 43.5 28 43.5H59V44.5H28C24.9624 44.5 22.5 42.0376 22.5 39V8C22.5 5.51472 20.4853 3.5 18 3.5Z"/>
+                                <path
+                                    d="M6 3C6 4.65685 4.65685 6 3 6C1.34315 6 0 4.65685 0 3C0 1.34315 1.34315 0 3 0C4.65685 0 6 1.34315 6 3Z"/>
+                            </g>
+                        </g>
+                    </svg>
+
+                    <div className="group bg-slate-800 mt-2 text-slate-600 p-2 w-60 grid rounded-xl">
+                        <div className="grid grid-cols-5 gap-3 place-items-center text-sm font-semibold">
+                            <div className="col-span-3 justify-self-start"></div>
+                            <div
+                                className="font-black text-slate-600 text-2xl gap-2 grid col-span-1 justify-items-end text-slate-300">
+                                <div className="h-8 bg-slate-700 rounded"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div
+                className="p-2 rounded-xl mb-10 mt-3 animate-pulse transition-all drop-shadow-xl ring-1 bg-slate-950  ring-blue-800 hover:ring-2 hover:ring-blue-500   duration-300 ">
+
+                <div className="gap-2 ">
+
+                    <div
+                        className="font-semibold text-slate-400 text-sm p-4 mb-2 rounded-xl bg-slate-800 grid place-content-center"></div>
+                    <div className="group bg-slate-800 p-2 w-60 grid rounded-xl">
+                        <div className="grid grid-cols-5 gap-3 place-items-center text-sm font-semibold">
+                            <div className="col-span-3 text-slate-300 justify-self-start"></div>
+                            <div className="h-8 bg-slate-700 rounded"></div>
+
+                        </div>
+                    </div>
+                    <svg width="120" height="120" viewBox="0 0 59 45"
+                         className={"fill-blue-800 hover:fill-blue-500 absolute -mt-[6rem] ml-[15.14rem] rotate-180 scale-x-[-1]"}
+                         xmlns="http://www.w3.org/2000/svg">
+                        <g id="Group 2">
+                            <g id="Vector">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M18 3.5H4V2.5H18C21.0376 2.5 23.5 4.96243 23.5 8V39C23.5 41.4853 25.5147 43.5 28 43.5H59V44.5H28C24.9624 44.5 22.5 42.0376 22.5 39V8C22.5 5.51472 20.4853 3.5 18 3.5Z"/>
+                                <path
+                                    d="M6 3C6 4.65685 4.65685 6 3 6C1.34315 6 0 4.65685 0 3C0 1.34315 1.34315 0 3 0C4.65685 0 6 1.34315 6 3Z"/>
+                            </g>
+                        </g>
+                    </svg>
+
+                    <div className="group bg-slate-800 mt-2 text-slate-600 p-2 w-60 grid rounded-xl">
+                        <div className="grid grid-cols-5 gap-3 place-items-center text-sm font-semibold">
+                            <div className="col-span-3 justify-self-start"></div>
+                            <div
+                                className="font-black text-slate-600 text-2xl gap-2 grid col-span-1 justify-items-end text-slate-300">
+                                <div className="h-8 bg-slate-700 rounded"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    )
+};
+

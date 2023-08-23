@@ -5,14 +5,40 @@ import config from "../config.json"
 import {ChevronDoubleLeftIcon, TrophyIcon, XCircleIcon} from "@heroicons/react/24/solid";
 import GetGroups from "./gettingGroupTabs";
 import TournamentCardSkeleton from "./TournamentSkeleton";
-import {ExclamationCircleIcon, QuestionMarkCircleIcon} from "@heroicons/react/20/solid";
+import {ChevronDoubleRightIcon, ExclamationCircleIcon, QuestionMarkCircleIcon} from "@heroicons/react/20/solid";
+import RoundOf16 from "./roundOf16";
+import QuarterFinals from "./quarterFinals";
+import {Fi} from "react-flags-select";
+import Final from "./final";
+import {Link} from "react-router-dom";
+import DevelopmentWarning from "./DevelopmentWarning";
 
-
+const TournamentLabel = ({selectedTournament}) => {
+    return (
+        <div
+            className="bg-slate-700  text-[15px] mb-7 gap-2 p-2 flex drop-shadow-xl place-items-center place-content-center font-semibold text-slate-300">
+            {!selectedTournament ?
+                <div className="bg-sky-400 px-3 text-[12px] drop-shadow-lg
+                    font-bold text-slate-900 rounded-xl">TOURNAMENTS</div> :
+                <div className="flex gap-2 ">
+                    <div className="font-semibold text-[12px]">
+                        {selectedTournament.tournament_name.toUpperCase()}
+                    </div>
+                    <div
+                        className="bg-rose-300 px-2 text-[10px] grid place-content-center place-self-center drop-shadow-lg font-bold text-slate-900 rounded-xl">
+                        GROUP-STAGES
+                    </div>
+                </div>
+            }
+        </div>
+    );
+}
 const TournamentDetails = () => {
     const [tournaments, setTournaments] = useState([]);
     const [selectedTournament, setSelectedTournament] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [showRoundOf16, setShowRoundOf16] = useState(false);
 
     function hideErrorContainer() {
         const errorContainer = document.getElementById('error-container');
@@ -43,32 +69,50 @@ const TournamentDetails = () => {
 
     const handleGet = tournament => {
         setSelectedTournament(tournament);
-    }
+    };
+
+    const handleNext = () => {
+        // Trigger the logic to show the RoundOf16 component
+        setShowRoundOf16(true)
+        console.log(selectedTournament)
+
+    };
 
     const handleBackToTournaments = () => {
-        setSelectedTournament(null);
-    }
+        {
+            !showRoundOf16 ?
+                setSelectedTournament(null) :
+                setShowRoundOf16(false);
+        }
+
+    };
+
 
     if (error) {
         return (
-            <div className="bg-slate-900 grid grid-rows-6 text-slate-300">
-                <div className="grid justify-center m-5">
-                    <div id="error-container" className="transition-all bg-red-200 flex gap-2 p-6  rounded-xl">
-                        <XCircleIcon className="h-6 w-6 text-red-500" id="error-svg"/>
-                        <div id="error-message" className="text-red-500">{error}</div>
-                    </div>
-                    <div className="p-3">
-                        <h2 className="grid justify-center font-bold uppercase p-3 drop-shadow-lg text-slate-300">Tournaments</h2>
+            <div>
+                <TournamentLabel selectedTournament={selectedTournament}/>
+                <div className="bg-slate-900 grid grid-rows-6 text-slate-300">
 
-                        <TournamentCardSkeleton/>
-                        <TournamentCardSkeleton/>
-                        <TournamentCardSkeleton/>
-                        <TournamentCardSkeleton/>
-                        <TournamentCardSkeleton/>
-                    </div>
+                    <div className="grid justify-center">
 
+                        <div id="error-container" className="transition-all bg-red-200 flex gap-2 p-6  rounded-xl">
+                            <XCircleIcon className="h-6 w-6 text-red-500" id="error-svg"/>
+                            <div id="error-message" className="text-red-500">{error}</div>
+                        </div>
+                        <div className="p-3">
+                            <TournamentCardSkeleton/>
+                            <TournamentCardSkeleton/>
+                            <TournamentCardSkeleton/>
+                            <TournamentCardSkeleton/>
+                            <TournamentCardSkeleton/>
+                        </div>
+
+                    </div>
                 </div>
+
             </div>
+
         );
     }
 
@@ -76,8 +120,9 @@ const TournamentDetails = () => {
         // Show the loading skeleton while data is being fetched
         return (
             <div className="bg-slate-900 text-slate-300">
-                <div className="grid justify-center p-3">
-                    <h2 className="grid justify-center font-bold uppercase p-3 drop-shadow-lg text-slate-300">Tournaments</h2>
+                <TournamentLabel selectedTournament={selectedTournament}/>
+
+                <div className="grid justify-center">
 
                     <TournamentCardSkeleton/>
                     <TournamentCardSkeleton/>
@@ -95,22 +140,10 @@ const TournamentDetails = () => {
 
     return (
         <div className="bg-slate-900 text-slate-300">
+            <TournamentLabel selectedTournament={selectedTournament}/>
             <div className="grid justify-center">
-                <div id="error-container"
-                     className=" animate-pulse decoration-2 mt-6 place-items-center place-self-center h-auto w-72 transition-all bg-amber-100 flex gap-2 p-6 rounded-xl">
-                    <ExclamationCircleIcon className="h-8 w-8 text-amber-500" id="error-svg"/>
-                    <XCircleIcon className="h-6 w-6 text-red-500 absolute ml-[14.7rem] mb-16"
-                                 onClick={hideErrorContainer} id="close-svg"/>
-                    <div id="error-message" className="text-amber-950">The application is currently in development ;)
-                    </div>
-                </div>
-
                 {!selectedTournament ? (
-
-
                     <div className="grid grid-rows-1 max-w-auto grid-cols-1 p-3  gap-3 border-1 text-slate-300">
-                        <h2 className="grid justify-center font-bold uppercase p-3 drop-shadow-lg text-slate-300">Tournaments</h2>
-
                         {tournaments.map(tournament => (
                             <div className="" key={tournament.id} onClick={() => handleGet(tournament)} className="text-gray-400
                              bg-slate-950 grid gap-2 grid-cols-2 hover:bg-slate-900 hover:ring-2 hover:shadow-blue-500
@@ -151,10 +184,25 @@ const TournamentDetails = () => {
                     </div>
                 ) : (
                     <div>
-                        <div onClick={handleBackToTournaments} className="gap-2 flex place-items-center my-3">
-                            <ChevronDoubleLeftIcon className="w-8 h-8 text-blue-500"/>Back to Tournaments
+                        <div className="flex place-content-between">
+                            <div onClick={handleBackToTournaments} className="gap-2 flex place-items-center my-3">
+                                <ChevronDoubleLeftIcon className="w-8 h-8 text-blue-500"/>Back
+                            </div>
+                            <Link to={`/${selectedTournament.id}/test`}>
+                                <div onClick={handleNext} className="gap-2 flex place-items-center my-3 ">
+                                    Next<ChevronDoubleRightIcon className="w-8 h-8 text-blue-500"/>
+
+                                </div>
+                            </Link>
+
                         </div>
-                        <GetGroups tournamentId={selectedTournament.id}/>
+
+                        {showRoundOf16 ?
+                            <RoundOf16 tournamentId={selectedTournament.id}/> :
+                            <GetGroups tournamentId={selectedTournament.id}/>
+                        }
+
+
                         {/*<Group tournamentId={selectedTournament.id} onBackToTournaments={handleBackToTournaments} />*/}
                     </div>
                 )}

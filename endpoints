@@ -1,9 +1,17 @@
 {
+  "api": "http://127.0.0.1:8000",
   "apiEndpoint": "http://127.0.0.1:8000/tournaments",
   "clubAPI": "http://127.0.0.1:8000/clubs"
 }
 
 {
+  "api": "https://ftmsapi.pythonanywhere.com",
   "apiEndpoint": "https://ftmsapi.pythonanywhere.com/tournaments",
   "clubAPI": "https://ftmsapi.pythonanywhere.com/clubs"
+}
+
+{
+  "api": "http://192.168.0.163:8000",
+  "apiEndpoint": "http://192.168.0.163:8000/tournaments",
+  "clubAPI": "http://192.168.0.163:8000/clubs"
 }

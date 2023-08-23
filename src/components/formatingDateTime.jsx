@@ -53,3 +53,21 @@ const DateTimeFormating = ({dateTimeStr}) => {
 };
 
 export default DateTimeFormating;
+
+
+export const QualifyDateTimeFormating = ({dateTimeStr}) => {
+    const {time, timeOfDay, day, month} = formatDate(dateTimeStr);
+
+    return (
+        <div className="gap-2 flex">
+            <div
+                className="text-sm font-bold w-24 text-slate-400 grid place-content-center bg-slate-800 p-1.5 rounded-xl">{`${timeOfDay.toUpperCase()} `}</div>
+            <div
+                className="text-rose-500  text-sm font-black bg-slate-800 grid place-content-center  p-1.5 rounded-xl">{`${time}`}</div>
+            <div
+                className="text-slate-400 text-sm font-bold bg-slate-800 grid place-content-center p-1.5 rounded-xl">{`${day} ${month}`}</div>
+        </div>
+    );
+};
+
+

@@ -5,13 +5,14 @@ import {Fragment} from 'react'
 import {Disclosure, Menu, Transition} from '@headlessui/react'
 import {Bars3Icon, BellIcon, XMarkIcon} from '@heroicons/react/24/outline'
 import Logo from "./logo";
+import {Li} from "react-flags-select";
 
 
 const navigation = [
-    {name: 'Tournaments', href: '/', current: true},
-    {name: 'Teams', href: '/teams', current: false},
-    {name: 'New Tournament', href: '/new-tournament', current: false},
-    {name: 'New Club', href: '/new-club', current: false},
+    {name: 'Tournaments', href: '/tournaments', current: true},
+    {name: 'All Clubs', href: '/clubs', current: false},
+    {name: 'Create Tournament', href: '/new-tournament', current: false},
+    {name: 'Create Club', href: '/new-club', current: false},
 ]
 
 function classNames(...classes) {
@@ -53,7 +54,9 @@ export default function Navbar() {
                             </div>
                             <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                                 <div className="flex flex-shrink-0 items-center">
-                                    <Logo/>
+                                    <Link to="/">
+                                        <Logo/>
+                                    </Link>
                                 </div>
                                 <div className="hidden sm:ml-6 sm:block">
                                     <div className="flex space-x-4">
