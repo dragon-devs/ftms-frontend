@@ -29,7 +29,9 @@ To get started with the frontend of the Football Tournament Management System, f
 ### Steps
 
 1. **Clone the Repository:**
+```
 git clone https://github.com/dragon-devs/ftms-frontend.git
+```
 
 markdown
 Copy code
