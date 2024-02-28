@@ -1,4 +1,4 @@
-# Football Tournament Management System - Frontend
+# Football Tournament Management System - Frontend ⚽
 
 This is the frontend repository for the Football Tournament Management System, a comprehensive platform designed to facilitate the management of football tournaments. With this system, users can create new teams, set up tournaments, add teams to tournaments, automatically create groups based on team ratings, schedule matches, view tournament details, and track team history.
 
